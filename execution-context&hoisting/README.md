@@ -8,6 +8,8 @@ Variables declared with var are hoisted but only initialized with undefined. Acc
 
 let and const are also hoisted, but placed in the Temporal Dead Zone (TDZ), meaning you cannot access them before the declaration line — doing so throws a ReferenceError.
 
+Order doesn’t matter for function declarations, but it does for variable initializations.
+
 
 ```javascript
 Example 1: Hoisting with var
@@ -40,4 +42,3 @@ var x = 5;
 function sayHi() {
     console.log("Hi there!");
 }
-Order doesn’t matter for function declarations, but it does for variable initializations.
