@@ -16,7 +16,6 @@ console.log(myVar); // 10
 
 
 Example 2: Hoisting with Function Declarations
-```javascript
 greet(); // Hello!
 
 function greet() {
@@ -31,7 +30,6 @@ let myLet = 20;
 
 
 ### Example 4: Mixed Case
-```javascript
 sayHi(); // "Hi there!"
 console.log(x); // undefined
 
