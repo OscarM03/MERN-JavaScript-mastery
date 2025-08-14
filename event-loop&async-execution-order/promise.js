@@ -34,3 +34,10 @@ setTimeout(() => {
 
 console.log("End");
 
+// Output:
+// Start
+// End
+// Timeout 1
+// Promise inside Timeout
+
+// Here the promise runs after the timeout callback, because the promise does not exists untill the timeout fires. (it is inside the timeout). This means the timeout will fire and be added to the callback queue, or macrotask queue, and will be executed after the current stack is cleared. Then the promise will be added to the microtask queue and will run after the timeout macrotask is finished.
