@@ -40,4 +40,9 @@ console.log("End");
 // Timeout 1
 // Promise inside Timeout
 
-// Here the promise runs after the timeout callback, because the promise does not exists untill the timeout fires. (it is inside the timeout). This means the timeout will fire and be added to the callback queue, or macrotask queue, and will be executed after the current stack is cleared. Then the promise will be added to the microtask queue and will run after the timeout macrotask is finished.
+// Here the promise runs after the timeout callback, because the promise does not exist until the timeout fires (it is created inside the timeout). This means:
+// The timeout callback itself is scheduled as a macrotask and will run after the current call stack is cleared.
+// When that timeout callback executes, it logs "Timeout 1" and then creates the promise.
+// The promise’s .then is placed into the microtask queue.
+// The event loop will then immediately clear all microtasks before moving on to the next macrotask.
+// As a result, the timeout callback runs first, and the promise callback runs right after it, before any other macrotasks.
